@@ -1,6 +1,7 @@
 package com.framework.android.ui.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.framework.android.R;
 import com.framework.android.ui.base.BaseActivity;
@@ -20,6 +21,11 @@ public class SetActivity extends BaseActivity {
     public void onViewClicked() {
         overridePendingTransition(R.anim.activity_out_from_right,R.anim.activity_in_from_right);
         SetActivity.this.finish();
+
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 }

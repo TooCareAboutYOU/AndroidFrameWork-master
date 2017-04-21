@@ -36,6 +36,6 @@ public class Test2Fragment extends BaseFragment {
     public void onViewClicked() {
         Toast.makeText(getActivity(), "跳转", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getActivity(), MainActivity.class));
-        //overridePendingTransition(R.anim.activity_in_from_right, R.anim.activity_out_from_right);
+
     }
 }

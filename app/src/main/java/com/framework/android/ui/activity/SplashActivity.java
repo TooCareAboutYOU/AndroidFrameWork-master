@@ -3,6 +3,7 @@ package com.framework.android.ui.activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 import android.widget.Toast;
 
 import com.framework.android.R;
@@ -28,7 +29,15 @@ public class SplashActivity extends BaseActivity {
     private void initView() {
         mManager=getSupportFragmentManager();
         ft=mManager.beginTransaction();
+        ft.setCustomAnimations(R.anim.activity_in_from_right, R.anim.activity_out_from_right);
         ft.add(R.id.contains_fragment, new Test2Fragment());
+        ft.addToBackStack(null);
         ft.commit();
+    }
+
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

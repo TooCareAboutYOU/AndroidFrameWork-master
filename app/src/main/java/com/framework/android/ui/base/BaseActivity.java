@@ -21,43 +21,40 @@ import butterknife.ButterKnife;
  * Created by J.K.Zhang on 2017/4/19.
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Nullable
     @Bind(R.id.toolbar_base)
-    Toolbar mToolbar;
+    protected Toolbar mToolbar;
 
     @Nullable
     @Bind(R.id.contains_left)
-    RelativeLayout containsLeft;  //左边
+    protected RelativeLayout containsLeft;  //左边
 
     @Nullable
-    @Bind(R.id.toolbar_left)
-    ImageView mImgLeft;
-
+    @Bind(R.id.toolbar_left)      //返回
+    protected ImageView mImgLeft;
 
     @Nullable
     @Bind(R.id.contains_center)
-    RelativeLayout containsCenter;   //标题
+    protected RelativeLayout containsCenter;   //标题
 
     @Nullable
-    @Bind(R.id.toolbar_center)
-    TextView mTvCenter;
+    @Bind(R.id.toolbar_center)     //标题文字
+    protected TextView mTvCenter;
 
     @Nullable
     @Bind(R.id.contains_right)
-    RelativeLayout containsRight;  //右边
+    protected RelativeLayout containsRight;  //右边
 
     @Nullable
-    @Bind(R.id.toolbar_right)
-    ImageView mImgRight;
+    @Bind(R.id.toolbar_right)   //菜单
+    protected ImageView mImgRight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
-
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
