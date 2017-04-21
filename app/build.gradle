@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+
+def config = rootProject.ext.configs;
+def lib = rootProject.ext.libs;
+
+android {
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+    defaultConfig {
+        applicationId "com.framework.android"
+        minSdkVersion 21
+        targetSdkVersion config.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            //signingConfig signingConfigs.myConfig
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "com.android.support:appcompat-v7:${libs.supportVersion}"
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.facebook.fresco:imagepipeline-okhttp:0.9.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'de.greenrobot:greendao:2.0.0'
+    compile 'com.facebook.fresco:fresco:0.9.0'
+    compile 'com.orhanobut:logger:1.10'
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    compile "com.android.support:design:${libs.supportVersion}"
+}
